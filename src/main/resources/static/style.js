@@ -39,12 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (document.getElementById('node_group') != null) {
             return
         }
-        const textField = document.getElementById("string-graph")
-            .value.replace(/ /g, "m").replace(/\|/g, "l");
+        const textField = document.getElementById("string-graph").value
+            .replace("| ", '|') // forgiveness function
+            .replace(" |", '|')
+            .replace(/ /g, "m")
+            .replace(/\|/g, "l");
         
         const responseMessage = document.getElementById("responseMessage");
-
-        
         fetch('/api/VertexCoordinates?param=' + textField)
             .then(response => {
                 return response.json()
@@ -76,7 +77,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 return placeEdges()
             })
             
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error)
+            fetch('/api/removeGraph')
+                .then(response => {
+                    if (response.text() == 1) {
+                        console.log('graph removed')
+                    }
+                })
+            .catch(error => console.log(error));
+        });
         
 
     });
