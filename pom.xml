@@ -5,18 +5,24 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.2.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>Graph-Theory-Group</groupId>
-	<artifactId>ComboVisTools</artifactId>
+	<groupId>example</groupId>
+	<artifactId>combovistools</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ComboVisTools</name>
+	<name>combovistools</name>
 	<description>Visualization Tool for Concepts in Applied Combinatorics (Math 3012) At Georgia Tech</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
